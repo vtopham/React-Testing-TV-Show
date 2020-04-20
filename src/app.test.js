@@ -9,9 +9,19 @@ import { act } from "react-dom/test-utils"
 
 jest.mock("./api/fetchShow")
 
-test ("response from the API", async () => {
-    mockFetchShow.mockResolvedValueOnce(apiData)
-
+test ("Can select from the dropdown menu & it renders the right page", async () => {
+    act(() => {
+        mockFetchShow.mockResolvedValueOnce(apiData)
+    })
+    
     const { getByText } = render(<App />)
+
+    await wait(() => {
+        const dropdown = getByText("Select a season")
+
+        dropdown.value = "Season 2"
+
+        expect(dropdown).toHaveValue("Season 2")
+    })
     
 })
