@@ -12,8 +12,4 @@ export const fetchShow = (setShow, setSeasons) => {
         .then (res => {
             return res
         })
-        // .then(res => {
-        //   setShow(res.data);
-        //   setSeasons(formatSeasons(res.data._embedded.episodes));
-        // });
 };

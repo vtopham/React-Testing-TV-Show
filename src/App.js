@@ -16,16 +16,6 @@ export default function App() {
   const episodes = seasons[selectedSeason] || [];
 
   useEffect(() => {
-    // const fetchShow = () => {
-    //   axios
-    //     .get(
-    //       "https://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes"
-    //     )
-    //     .then(res => {
-    //       setShow(res.data);
-    //       setSeasons(formatSeasons(res.data._embedded.episodes));
-    //     });
-    // };
     fetchShow()
     .then(res => {
         setShow(res.data);
@@ -49,6 +39,7 @@ export default function App() {
       <Dropdown
         options={Object.keys(seasons)}
         onChange={handleSelect}
+        data-testid = "dropdown"
         value={selectedSeason || "Select a season"}
         placeholder="Select an option"
       />
