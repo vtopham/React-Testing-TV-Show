@@ -18,6 +18,7 @@ export default function App() {
   useEffect(() => {
     fetchShow()
     .then(res => {
+      // console.log(JSON.stringify(res))
         setShow(res.data);
         setSeasons(formatSeasons(res.data._embedded.episodes));
   })
@@ -39,7 +40,6 @@ export default function App() {
       <Dropdown
         options={Object.keys(seasons)}
         onChange={handleSelect}
-        data-testid = "dropdown"
         value={selectedSeason || "Select a season"}
         placeholder="Select an option"
       />
