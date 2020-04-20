@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
+import { formatSeasons } from "../utils/formatSeasons";
+
+
 export const fetchShow = (setShow, setSeasons) => {
     axios
         .get(
@@ -10,6 +13,4 @@ export const fetchShow = (setShow, setSeasons) => {
           setShow(res.data);
           setSeasons(formatSeasons(res.data._embedded.episodes));
         });
-    };
-}
-
+};
